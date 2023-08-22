@@ -2,7 +2,7 @@
 
 
 
-$name = array("name"=>"Dhruvin","Devendra","jatin","yash");
+$name = array("name"=>"Dhruvin","Devendra","jatin","yash","Admin");
 
 
 // echo $name;
