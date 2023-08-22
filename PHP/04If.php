@@ -17,7 +17,7 @@
 // False    False       False
 
 
-$age =-1;
+$age =10;
 
 
 
@@ -78,7 +78,13 @@ else
 
 
 
-
+// if(condition)
+// {
+//     if(condition)
+//     {
+//         if(condition)
+//     }
+// }
 
 
 

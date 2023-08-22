@@ -28,6 +28,17 @@ echo "<br>Hello "." this is a".$price;
 
 print("<br>Hello this is a $price");
 
+
+
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
+
+echo '$Price is ',$price," This is a string"." This is another string";
+// echo $price;
+
 ?>
 
 <!-- <br> -->

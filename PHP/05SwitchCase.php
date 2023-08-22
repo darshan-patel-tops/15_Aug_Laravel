@@ -3,11 +3,16 @@
 
 
 
-$name = "random";
+$name = "yash";
 
 
 switch($name)
 {
+
+    case 1:
+            echo "You choose 1";
+            break;
+
     case "yash":
         echo "Name is Yash<br>";
         break;
