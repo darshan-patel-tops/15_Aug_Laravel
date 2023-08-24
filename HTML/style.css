@@ -1,0 +1,31 @@
+h3{
+    color: blue;
+}
+
+h4{
+    color: yellowgreen;
+}
+
+
+
+h1
+{
+    color:blue;
+    background-color: yellow;
+}
+
+
+p
+{
+    color: blue;
+    background-color: aqua;
+    margin-left: 50px;
+    margin-right: 50px;
+
+    padding-left: 50px;
+    padding-right: 50px;
+
+    text-align:right;
+    /* text-align: center; */
+
+}
