@@ -1,0 +1,30 @@
+h1
+{
+    color: violet;
+}
+
+
+div
+{
+    color:aqua;
+}
+
+.name
+{
+    color: violet;
+}
+
+.checking
+{
+    color: tomato;
+}
+
+.hover
+{
+    color: yellow;
+}
+
+.hover:hover
+{
+    color: black;
+}
