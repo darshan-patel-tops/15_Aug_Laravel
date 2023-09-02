@@ -47,3 +47,11 @@ DELETE from users where user_id = 6
 DROP TABLE user
 drop database 15_aug_laravel
 TRUNCATE TABLE users
+
+
+
+
+SELECT * from users LEFT JOIN posts on users.user_id = posts.uid
+SELECT * from users RIGHT JOIN posts on users.user_id = posts.uid
+SELECT * from posts  INNER JOIN users on users.user_id = posts.uid
+SELECT * from posts  FULL OUTER JOIN users on users.user_id = posts.uid
