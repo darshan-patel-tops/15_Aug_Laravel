@@ -33,3 +33,4 @@ echo "Hello this is $Name_of_student and he is $type";
 
 
 <h1>Hello welcome to class of php</h1>
+

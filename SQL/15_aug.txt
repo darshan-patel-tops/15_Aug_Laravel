@@ -50,7 +50,6 @@ TRUNCATE TABLE users
 
 
 
-
 SELECT * from users LEFT JOIN posts on users.user_id = posts.uid
 SELECT * from users RIGHT JOIN posts on users.user_id = posts.uid
 SELECT * from posts  INNER JOIN users on users.user_id = posts.uid
