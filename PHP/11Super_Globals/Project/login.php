@@ -1,47 +1,33 @@
 <?php
+require_once('header.php');
 
-
-// include("header.php");
-// include("header.php");
-// include("header1.php");
-// include("header.php");
-// include("header.php");
-
-// include_once("header.php");
-// include_once("header.php");
-// include_once("heade1r.php");
-// include_once("header.php");
-// include_once("header.php");
-
-// require("header.php");
-// require("header.php");
-// require("header1.php");
-// require("header.php");
-// require("header.php");
-
-// require_once("header.php");
-// require_once("header.php");
-// require_once("header.php");
-// require_once("header.php");
-// require_once("header.php");
-
-require_once("header.php");
-// print_r($_SERVER);
-// setcookie("Port_address",$_SERVER['REMOTE_PORT'],time()+3600);
-echo "<pre>";
-  //  echo time();
-   if(isset($_REQUEST['register_btn']))
-    {    
-
-      print_r($_REQUEST);
-      setcookie("username",$_REQUEST['username'],time()+3600);
-      setcookie("email",$_REQUEST['email'],time()+3600);
-      setcookie("password",$_REQUEST['password'],time()+3600);
-      header("location:login.php"); //You can redirect using 
-        // print_r($_COOKIE);
+if(isset($_REQUEST['login_btn']))
+{
+    echo "<pre>";
+    // print_r($_COOKIE);
+    // print_r($_REQUEST);
+    echo "</pre>";
+    if($_COOKIE['username'] == $_REQUEST['username'] && $_COOKIE['password'] == $_REQUEST['password'])
+    {
+        // echo "inside if";
+        // echo "<h1>Login Successful</h1>";
+        header("location:homepage.php");
     }
-   echo "</pre>";
+    else
+    {
+        echo "<script>alert('Login details are not valid')</script>";
+
+    }
+    
+    // echo "inside if";
+
+}
+else
+{
+    // echo "inside else";
+}
 ?>
+
 <body class="align">
 
 <div class="grid">
@@ -55,12 +41,7 @@ echo "<pre>";
       <input autocomplete="username" id="login__username" type="text" name="username" class="form__input" placeholder="Username" required>
     </div>
    
-    <div class="form__field">
-      <label for="email"><svg class="icon">
-          <use xlink:href="#icon-user"></use>
-        </svg><span class="hidden">Email</span></label>
-      <input autocomplete="email" id="email" type="text" name="email" class="form__input" placeholder="email" required>
-    </div>
+  
 
     <div class="form__field">
       <label for="login__password"><svg class="icon">
@@ -70,15 +51,11 @@ echo "<pre>";
     </div>
 
     <div class="form__field">
-      <!-- <a href="/login.php"> -->
-
-        <input type="submit" name="register_btn" >
-      <!-- </a> -->
+      <input type="submit" name="login_btn" >
     </div>
 
   </form>
 
-  
   <p class="text--center">Not a member? <a href="#">Sign up now</a> <svg class="icon">
       <use xlink:href="#icon-arrow-right"></use>
     </svg></p>
@@ -318,9 +295,3 @@ p {
 
 </body>
 
-
-
-   <?php
-   
-   
-   ?>
