@@ -9,6 +9,8 @@ if(isset($_REQUEST['login_btn']))
     echo "</pre>";
     if($_COOKIE['username'] == $_REQUEST['username'] && $_COOKIE['password'] == $_REQUEST['password'])
     {
+      
+      $_SESSION["user_information"] = ["username"=>$_REQUEST['username'],"password"=>$_REQUEST["password"],"email"=>$_COOKIE['email']] ;
         // echo "inside if";
         // echo "<h1>Login Successful</h1>";
         header("location:homepage.php");

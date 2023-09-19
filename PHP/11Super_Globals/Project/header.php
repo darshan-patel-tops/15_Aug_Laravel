@@ -1,4 +1,8 @@
+<?php
 
+session_start();
+
+?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
@@ -10,12 +14,12 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Home
+          <a class="nav-link active" href="homepage.php">Home
             <span class="visually-hidden">(current)</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="product-upload.php">Upload Product</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Pricing</a>
@@ -36,7 +40,7 @@
       </ul>
       <form class="d-flex">
         <input class="form-control me-sm-2" type="search" placeholder="Search">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        <button class="btn btn-secondary my-2 my-sm-0" >Welcome  <?php echo $_SESSION['user_information']['username']; ?></button>
       </form>
     </div>
   </div>

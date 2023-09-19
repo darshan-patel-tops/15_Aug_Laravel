@@ -52,7 +52,7 @@ echo "<pre>";
       <label for="login__username"><svg class="icon">
           <use xlink:href="#icon-user"></use>
         </svg><span class="hidden">Username</span></label>
-      <input autocomplete="username" id="login__username" type="text" name="username" class="form__input" placeholder="Username" required>
+      <input autocomplete="username" id="login__username" type="text" autofocus name="username" class="form__input" placeholder="Username" required>
     </div>
    
     <div class="form__field">
