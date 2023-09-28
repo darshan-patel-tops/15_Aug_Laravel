@@ -22,7 +22,7 @@ session_start();
           <a class="nav-link" href="product-upload.php">Upload Product</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="cart.php">Cart</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">About</a>

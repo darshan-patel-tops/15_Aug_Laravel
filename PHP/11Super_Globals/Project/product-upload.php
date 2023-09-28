@@ -12,9 +12,10 @@ if(isset($_REQUEST['upload_btn']))
 
     echo "<pre>";
     print_r($_FILES);
-    move_uploaded_file($_FILES['image']['tmp_name'],"upload/".time().uniqid().$_FILES['image']['name']);
+    $destination = "upload/".time().uniqid().$_FILES['image']['name'];
+    move_uploaded_file($_FILES['image']['tmp_name'],$destination);
 
-    $_SESSION['product'][] = array("price"=>$_REQUEST["price"],"description"=>$_REQUEST['description'],"image"=>"upload/".time().uniqid().$_FILES['image']['name']);
+    $_SESSION['product'][] = array("price"=>$_REQUEST["price"],"description"=>$_REQUEST['description'],"image"=>$destination);
     
     echo "</pre>";
 }
