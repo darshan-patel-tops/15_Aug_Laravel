@@ -79,14 +79,16 @@ $school = array(
 
 print_r($school);
 
+// print_r(array_column($school,"sports"));
 
+$a = array_column($school["dps"]["standard"]["10th Standard"]["jatin"],"sports");
+// echo $a;
+print_r($a);
 
-
-
-foreach ($school as $key => $value) 
-{
-    echo "key is ".$key . " Value is ".$value;     
-}
+// foreach ($school as $key => $value) 
+// {
+//     echo "key is ".$key . " Value is ".$value;     
+// }
 
 
 
