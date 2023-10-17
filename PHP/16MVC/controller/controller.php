@@ -4,7 +4,7 @@ require_once('model/model.php');
 class controller extends model
 {
 
-
+// public $user_info;
     public $public_url = "http://localhost/Batches/15_Aug_Laravel/PHP/16MVC/asset/User/";
 
     public function __construct()
@@ -18,7 +18,7 @@ class controller extends model
             switch ($_SERVER['PATH_INFO']) 
             {
                 case '/home':
-
+                    print_r($user_info);
                     require_once('view/header.php');
                     require_once('view/index.php');
                     require_once('view/footer.php');
@@ -68,6 +68,25 @@ class controller extends model
                     break;
                 
                 case '/login':
+                    if(isset($_REQUEST['login']))
+                    {
+                        // echo "inside if";
+                        $data = $_REQUEST;
+                        $user_info = $this->login($data);
+                        if($user_info->role_as == 1)
+                        {
+                            header("location:admin");
+                        }
+                        else if ($user_info->role_as == 0)
+                        {
+                            header("location:home");
+                        }
+                        else
+                        {
+                            print_r("invalid response");
+                        }
+                        // print_r($user_info);
+                    }
                     require_once('view/header.php');
                     require_once('view/login.php');
                     require_once('view/footer.php');

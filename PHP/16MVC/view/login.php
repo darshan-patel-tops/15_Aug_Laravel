@@ -16,13 +16,13 @@
             <h2>Login Page</h2>
             <form action="" method="post">
                 <div class="input-box"> <span class="icon"> <i class="fa-solid fa-envelope"></i> </span> <input required
-                        type="email" name="email" id="email"> <label for="email">Enter your email</label> </div>
+                        type="text" name="email" id="email"> <label for="email">Enter your Username/Email</label> </div>
                 <div class="input-box"> <span class="icon"> <i class="fa-solid fa-lock"></i> </span> <input required
                         type="password" name="password" id="contraseña"> <label for="contraseña">Enter your password</label> </div>
                 <!-- <div class="remember-forgot"> <label> <input type="checkbox"> Recordarme </label> <a href="#">Olvidé la
                         contraseña</a> 
                     </div>  -->
-                    <button type="submit">Login</button>
+                    <button type="submit" name="login">Login</button>
             </form>
             <div class="create-account"> <a href="register">Sign up here</a> </div>
         </div>

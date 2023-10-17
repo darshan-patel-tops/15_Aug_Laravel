@@ -10,7 +10,7 @@ class model
         try 
         {
                 $this->connection = new mysqli("localhost","root","","15_aug_laravel");
-                echo "connection successful";
+                // echo "connection successful";
         } 
         catch (\Throwable $th) 
         {
@@ -19,6 +19,65 @@ class model
     }
 
 
+    public function login($data)
+    {
+        // echo "<pre>";
+
+        array_pop($data);
+        // print_r($data);
+        // AND password = '$data[password]'
+        $sql = "SELECT * FROM users WHERE(email = '$data[email]' OR username = '$data[email]' ) AND password = '$data[password]'";
+        // echo $sql;
+        $sqlex = $this->connection->query($sql);
+
+        // if($sqlex->num_rows>0)
+        // {
+        //      // $FetchData = $sqlex->fetch_all(); // numeric Array 
+        //     // $FetchData = $sqlex->fetch_array();  // numeric and assoc
+        //     // $FetchData = $sqlex->fetch_assoc();  //  assoc
+        //     // $FetchData = $sqlex->fetch_field();  //  table column
+        //     // $FetchData = $sqlex->fetch_row();  //  single and only numeric array
+        //     $fetchdata = $sqlex->fetch_object();  //  object res
+        //     // print_r($fetchdata);
+        //     // print_r($fetchdata->role_as);
+            
+        //     // print_r($sqlex->fetch_object());  //  object res
+        //     // print_r($sqlex->fetch_object()->role_as);
+        //    if($fetchdata->role_as == 1)
+        //    {
+        //     // echo "inside if";
+        //     header("location:admin/dashboard");
+        // }
+        // else
+        // {
+            
+        //     header("location:home");
+        //    }
+            
+           
+        // }
+        // else
+        // {
+        //     echo "<br>";
+        //     // echo "inside else";
+        //     echo "<script>alert('username or password is incorrect')</script>";
+        // }
+        // print_r($sqlex);
+        if($sqlex->num_rows > 0)
+        {
+                $fetchdata = $sqlex->fetch_object();
+                // print_r($fetchdata);
+            // echo "Data received";
+            return $fetchdata;
+        }
+        else 
+        {
+
+            // echo "No Data received";
+        }
+
+        // echo "inside model";
+    }
     public function register($data,$table)
     {
         echo "<pre>";
