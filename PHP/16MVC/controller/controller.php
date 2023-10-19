@@ -18,7 +18,7 @@ class controller extends model
             switch ($_SERVER['PATH_INFO']) 
             {
                 case '/home':
-                    print_r($user_info);
+                    // print_r($user_info);
                     require_once('view/header.php');
                     require_once('view/index.php');
                     require_once('view/footer.php');
@@ -87,9 +87,11 @@ class controller extends model
                         }
                         // print_r($user_info);
                     }
+
                     require_once('view/header.php');
                     require_once('view/login.php');
                     require_once('view/footer.php');
+                    
                     break;
                 case '/register':
                     if(isset($_REQUEST['register']))
