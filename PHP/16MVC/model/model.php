@@ -18,7 +18,52 @@ class model
         }  
     }
 
+public function select($table)
+{
+    // echo "<pre>";
+    $sql = "SELECT * FROM $table";
+    // echo $sql;
 
+    $sqlex = $this->connection->query($sql);
+    // print_r($sqlex);
+    if($sqlex->num_rows>0)
+    {
+        // echo "inside if";
+        // $fetchdata = $sqlex->fetch_object();
+        // $fetchdata = $sqlex->fetch_all();
+        // $fetchdata = $sqlex->fetch_array();
+        // $fetchdata = $sqlex->fetch_assoc();
+        // $fetchdata = $sqlex->fetch_field();
+        // $fetchdata = $sqlex->fetch_object();
+
+        while ($data = $sqlex->fetch_object()) 
+        {
+            $datas[] = $data;
+        }
+        // foreach ($fetchdata as $key => $value) {
+        //     echo "<pre>";
+        //     echo "$key && $value"; 
+        //     echo "</pre>";
+        // }
+        
+        $datas['status'] = "success";
+        $datas['code'] = 1;
+        // $fetchdata['code'] = 1;
+        // print_r($datas);
+        return $datas;
+        // exit;
+
+    }
+    else
+    {
+        $fetchdata['code'] = "Failure";
+        $fetchdata['status'] = 0;
+        return $fetchdata;
+        // echo "No Data Found";
+    }
+    
+    // exit;
+}
     public function login($data)
     {
         // echo "<pre>";

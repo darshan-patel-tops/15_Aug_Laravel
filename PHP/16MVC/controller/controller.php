@@ -1,3 +1,10 @@
+<!-- Upload image/Update -->
+<!-- Add product -->
+<!-- diaplay product on both sides -->
+
+
+
+
 <?php
 
 require_once('model/model.php');
@@ -6,6 +13,7 @@ class controller extends model
 
 // public $user_info;
     public $public_url = "http://localhost/Batches/15_Aug_Laravel/PHP/16MVC/asset/User/";
+    public $admin_url = "http://localhost/Batches/15_Aug_Laravel/PHP/16MVC/asset/Admin/";
 
     public function __construct()
     {
@@ -107,6 +115,34 @@ class controller extends model
                     require_once('view/register.php');
                     require_once('view/footer.php');
                     break;
+                
+
+                case '/admin/dashboard':
+                    require_once('view/admin/header.php');
+                    require_once('view/admin/home.php');
+                    require_once('view/admin/footer.php');
+                    break;
+                    
+                    case '/admin/all-users':
+                        $data = $this->select('users');
+                        // echo "<pre> <center>";
+                        // print_r($data);
+                        // echo "</center></pre>";
+                        if($data['code'] == 1)
+                        {
+                            array_pop($data);
+                            array_pop($data);
+                            require_once('view/admin/header.php');
+                            require_once('view/admin/allusers.php');
+                            require_once('view/admin/footer.php');
+                            
+                        }
+                        else
+                        {
+                            echo "<h1>No Data Found</h1>";
+                        }
+                        break;
+
                 
                 default:
                     echo "inside default";
