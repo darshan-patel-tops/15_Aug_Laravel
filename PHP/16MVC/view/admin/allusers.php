@@ -25,7 +25,14 @@
               <td><?php echo $value->email; ?></td>
               <td><?php echo $value->username; ?></td>
               <td><?php echo $value->role_as; ?></td>
-              <td>Update</td>
+              <td>
+                <form action="edit-user" method="post">
+                  <!-- <a href="update-user"> -->
+                    <button class="btn btn-sm btn-primary" name="update_btn" value="<?php echo $value->user_id; ?>">Update</button>
+                  <!-- </form> -->
+                </a>
+
+              </td>
               </tr>
          <?php }
           ?>

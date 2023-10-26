@@ -83,7 +83,7 @@ class controller extends model
                         $user_info = $this->login($data);
                         if($user_info->role_as == 1)
                         {
-                            header("location:admin");
+                            header("location:admin/dashboard/");
                         }
                         else if ($user_info->role_as == 0)
                         {
@@ -122,12 +122,46 @@ class controller extends model
                     require_once('view/admin/home.php');
                     require_once('view/admin/footer.php');
                     break;
+
+                case '/admin/edit-user':
+                    // print_r($_REQUEST);
+                    // exit;
+                    if(isset($_REQUEST['update']))
+                    {
+                        $id = $_REQUEST['update'];
+                        array_pop($_REQUEST);
+                        $updated = $this->update('users',$_REQUEST,$id);
+                        
+                        // echo "<pre>";
+                        // print_r($_REQUEST);
+                        // exit;
+                    }
+                    if(isset($_REQUEST['update_btn']))
+                    {
+
+                        $data = $this->selectwhere('users',$_REQUEST['update_btn']);
+                    }
+                    
+                    require_once('view/admin/header.php');
+                    require_once('view/admin/edit.php');
+                    require_once('view/admin/footer.php');
+                    
+                    
+                  
+                    break;
                     
                     case '/admin/all-users':
                         $data = $this->select('users');
                         // echo "<pre> <center>";
                         // print_r($data);
                         // echo "</center></pre>";
+                        if(isset($_REQUEST['update_btn']))
+                        {
+                            echo "Inside if";
+                            header("location:edit-user");
+                            // print_r($_REQUEST);
+                            // exit;
+                        }
                         if($data['code'] == 1)
                         {
                             array_pop($data);

@@ -18,6 +18,56 @@ class model
         }  
     }
 
+public function update($tbl,$data,$id)
+{
+
+    print_r($data);
+    $sql = "UPDATE $tbl SET";
+    echo "<br>";
+    foreach ($data as $key => $value) 
+    {
+        $sql .= " $key = '$value' ,";    
+    }
+    $sql = rtrim($sql,' ,');
+    $sql .= " WHERE user_id = $id ";
+    echo $sql;
+    $sqlex= $this->connection->query($sql);
+    print_r($sqlex);
+    // exit;
+    if($sqlex == 1)
+    {
+        // $data=$sqlex->fetch_object();
+        // print_r($data);
+        header("location:all-users");
+        exit;
+    }
+
+
+
+
+
+
+
+}
+public function selectwhere($tbl,$id)
+{
+
+    $sql = "SELECT * FROM $tbl WHERE user_id = $id";
+    // echo $sql;
+    $sqlex= $this->connection->query($sql);
+    // print_r($sqlex);
+    if($sqlex->num_rows > 0 )
+    {
+        $data = $sqlex->fetch_object();
+        // print_r($data);
+        return $data;
+    }
+    
+    // exit;
+
+}
+
+
 public function select($table)
 {
     // echo "<pre>";
