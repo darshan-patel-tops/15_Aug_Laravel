@@ -125,16 +125,38 @@ class controller extends model
 
                 case '/admin/edit-user':
                     // print_r($_REQUEST);
+                    // print_r($_FILES);
                     // exit;
                     if(isset($_REQUEST['update']))
                     {
-                        $id = $_REQUEST['update'];
-                        array_pop($_REQUEST);
-                        $updated = $this->update('users',$_REQUEST,$id);
-                        
-                        // echo "<pre>";
-                        // print_r($_REQUEST);
+                        echo "<pre>";
+                        print_r($_REQUEST);
+                        print_r($_FILES);
                         // exit;
+                        if($_FILES['image']['error'] == 0)
+                        {
+                            echo "inside if";
+                            $from = $_FILES['image']['tmp_name'];
+                            $to = 'upload/'. time().$_FILES['image']['name'];
+                            move_uploaded_file($from,$to);
+                            // exit;
+                            $id = $_REQUEST['update'];
+                            array_pop($_REQUEST);
+                            $query = array("image"=>"$to");
+                            // $query = $_REQUEST,"image"=>"$to";
+                            
+                            $updated = $this->update('users',array_merge($_REQUEST,$query),$id);
+                        }
+                        else
+                        {
+                            $id = $_REQUEST['update'];
+                            array_pop($_REQUEST);
+                            // $query = array("image"=>"$to");
+                            // $query = $_REQUEST,"image"=>"$to";
+                            
+                            $updated = $this->update('users',$_REQUEST,$id);
+                        }
+                        
                     }
                     if(isset($_REQUEST['update_btn']))
                     {
@@ -149,6 +171,12 @@ class controller extends model
                     
                   
                     break;
+
+
+                    case '/admin/delete-user':
+                            // print_r($_REQUEST);
+                            $this->delete('users',$_REQUEST['delete_btn']);
+                            break;
                     
                     case '/admin/all-users':
                         $data = $this->select('users');

@@ -29,7 +29,10 @@
                 <form action="edit-user" method="post">
                   <!-- <a href="update-user"> -->
                     <button class="btn btn-sm btn-primary" name="update_btn" value="<?php echo $value->user_id; ?>">Update</button>
-                  <!-- </form> -->
+                  </form>
+                  <form action="delete-user" method="post">
+                    <button class="btn btn-sm btn-danger" name="delete_btn" value="<?php echo $value->user_id; ?>">Delete</button>
+                  </form>
                 </a>
 
               </td>

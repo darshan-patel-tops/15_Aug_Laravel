@@ -18,6 +18,17 @@ class model
         }  
     }
 
+
+public function delete($tbl,$id)
+{
+    $sql = "DELETE  FROM $tbl WHERE user_id = $id";
+    $sqlex = $this->connection->query($sql);
+    // print_r($sqlex->fetch_object());
+    // echo $sql;
+    header("location:all-users");
+}
+
+
 public function update($tbl,$data,$id)
 {
 
@@ -31,9 +42,9 @@ public function update($tbl,$data,$id)
     $sql = rtrim($sql,' ,');
     $sql .= " WHERE user_id = $id ";
     echo $sql;
+    // exit;
     $sqlex= $this->connection->query($sql);
     print_r($sqlex);
-    // exit;
     if($sqlex == 1)
     {
         // $data=$sqlex->fetch_object();

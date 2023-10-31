@@ -15,7 +15,7 @@
 
                     <div class="card-body">
 
-                      <form action="" enctype="multipart/form-data" method="post">
+                      <form action="" enctype="multipart/form-data" method="post" enctype="multipart/form-data" >
 
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
@@ -47,6 +47,14 @@
                             </select>
                         
                           <!-- <input type="text" class="form-control" name="role_as" value="<?php echo $data->role_as ?>" id="basic-default-name" /> -->
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="basic-default-name">Image</label>
+                          <div class="col-sm-10">
+                            <input type="file" accept="image/*" class="form-control" name="image"  id="basic-default-name" />
+                            <img src="../<?php echo $data->image; ?>" alt="" height="100px" width="100px">
                           </div>
                         </div>
 
